@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.js": "/static/js/main.76d047b3.chunk.js",
-    "main.js.map": "/static/js/main.76d047b3.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.70556726.js",
-    "runtime-main.js.map": "/static/js/runtime-main.70556726.js.map",
-    "static/js/2.7e1594a9.chunk.js": "/static/js/2.7e1594a9.chunk.js",
-    "static/js/2.7e1594a9.chunk.js.map": "/static/js/2.7e1594a9.chunk.js.map",
-    "static/js/3.b4baf64f.chunk.js": "/static/js/3.b4baf64f.chunk.js",
-    "static/js/3.b4baf64f.chunk.js.map": "/static/js/3.b4baf64f.chunk.js.map",
-    "static/js/4.dfff9bcc.chunk.js": "/static/js/4.dfff9bcc.chunk.js",
-    "static/js/4.dfff9bcc.chunk.js.map": "/static/js/4.dfff9bcc.chunk.js.map",
-    "static/js/5.912e6736.chunk.js": "/static/js/5.912e6736.chunk.js",
-    "static/js/5.912e6736.chunk.js.map": "/static/js/5.912e6736.chunk.js.map",
+    "main.js": "/static/js/main.bac8be47.chunk.js",
+    "main.js.map": "/static/js/main.bac8be47.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.598351e1.js",
+    "runtime-main.js.map": "/static/js/runtime-main.598351e1.js.map",
+    "static/js/2.8b3e536e.chunk.js": "/static/js/2.8b3e536e.chunk.js",
+    "static/js/2.8b3e536e.chunk.js.map": "/static/js/2.8b3e536e.chunk.js.map",
+    "static/js/3.ce85053a.chunk.js": "/static/js/3.ce85053a.chunk.js",
+    "static/js/3.ce85053a.chunk.js.map": "/static/js/3.ce85053a.chunk.js.map",
+    "static/js/4.32c2422c.chunk.js": "/static/js/4.32c2422c.chunk.js",
+    "static/js/4.32c2422c.chunk.js.map": "/static/js/4.32c2422c.chunk.js.map",
+    "static/js/5.d646756e.chunk.js": "/static/js/5.d646756e.chunk.js",
+    "static/js/5.d646756e.chunk.js.map": "/static/js/5.d646756e.chunk.js.map",
     "index.html": "/index.html",
-    "static/js/2.7e1594a9.chunk.js.LICENSE.txt": "/static/js/2.7e1594a9.chunk.js.LICENSE.txt",
-    "static/js/3.b4baf64f.chunk.js.LICENSE.txt": "/static/js/3.b4baf64f.chunk.js.LICENSE.txt",
-    "static/media/background-image-art-gallery.68b61e57.jpeg": "/static/media/background-image-art-gallery.68b61e57.jpeg"
+    "static/js/2.8b3e536e.chunk.js.LICENSE.txt": "/static/js/2.8b3e536e.chunk.js.LICENSE.txt",
+    "static/js/3.ce85053a.chunk.js.LICENSE.txt": "/static/js/3.ce85053a.chunk.js.LICENSE.txt",
+    "static/media/background-image-art-gallery.8c7ae251.jpeg": "/static/media/background-image-art-gallery.8c7ae251.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.70556726.js",
-    "static/js/2.7e1594a9.chunk.js",
-    "static/js/main.76d047b3.chunk.js"
+    "static/js/runtime-main.598351e1.js",
+    "static/js/2.8b3e536e.chunk.js",
+    "static/js/main.bac8be47.chunk.js"
   ]
 }
