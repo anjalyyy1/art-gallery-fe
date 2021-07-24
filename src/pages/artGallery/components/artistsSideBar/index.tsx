@@ -1,6 +1,12 @@
-import Input from 'elements/input';
+// libraries
 import { filter, get, map, toLower } from 'lodash';
 import React, { useState } from 'react';
+
+// components
+import Input from 'elements/input';
+import Spin from 'components/spinner';
+
+// styles
 import {
   ArtistSideBarWrapper,
   Creator,
@@ -10,20 +16,32 @@ import {
   Heading,
   NoDataText,
 } from './styles';
-
+import { Loader } from 'pages/artGallery/styles';
 import { RiSearchLine } from 'react-icons/ri';
 
 type Props = {
   artistsData: any[];
+  isArtistLoading: boolean;
 };
 
-const ArtistSideBar: React.FunctionComponent<Props> = ({ artistsData }) => {
+const ArtistSideBar: React.FunctionComponent<Props> = ({
+  artistsData,
+  isArtistLoading,
+}) => {
   const [value, setValue] = useState('');
 
   const filteredData = filter(artistsData, eachArtist => {
     const text = toLower(eachArtist.name);
     return text.includes(toLower(value));
   });
+
+  if (isArtistLoading) {
+    return (
+      <Loader>
+        <Spin className="spinner-wrapper" /> Loading...
+      </Loader>
+    );
+  }
 
   return (
     <ArtistSideBarWrapper>

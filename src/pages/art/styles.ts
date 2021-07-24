@@ -38,6 +38,15 @@ export const ArtImage = styled.img`
 `;
 
 export const ArtDetails = styled.div`
+  max-width: 500px;
   flex: 1;
   margin-top: 50px;
+`;
+
+export const NotArtFound = styled.h2`
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
 `;

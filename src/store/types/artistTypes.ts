@@ -1,7 +1,9 @@
 const GET_ARTISTS = 'GET_ARTISTS';
 const SET_ARTISTS = 'SET_ARTISTS';
+const IS_ARTIST_LOADING = 'IS_ARTIST_LOADING';
 
 export const ArtistTypes = {
   GET_ARTISTS,
   SET_ARTISTS,
+  IS_ARTIST_LOADING,
 };

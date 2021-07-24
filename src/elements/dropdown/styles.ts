@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const SelectContainer = styled.div`
   width: 100%;
+  cursor: pointer;
   &.color-code-select-input,
   &.gradient-select-input {
     .select__control {

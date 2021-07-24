@@ -1,11 +1,18 @@
-import Dropdown from 'elements/dropdown';
+// libraries
 import React, { useCallback, useEffect, useState } from 'react';
-import { getArtists } from 'store/actions/artistActions';
-import { getArts } from 'store/actions/artsActions';
-import { useAppDispatch, useAppSelector } from 'ts/hooks';
+
+// components
+import Dropdown from 'elements/dropdown';
 import ArtistSideBar from './components/artistsSideBar';
 import Filter from './components/filter';
 import Gallery from './components/gallery';
+
+// services
+import { getArtists } from 'store/actions/artistActions';
+import { getArts } from 'store/actions/artsActions';
+import { useAppDispatch, useAppSelector } from 'ts/hooks';
+
+// styles
 import {
   Banner,
   BannerHeading,
@@ -34,18 +41,22 @@ const options = [
 ];
 
 const ArtGallery: React.FunctionComponent = () => {
-  const dispatch = useAppDispatch();
+  // state
   const [status, setStatus] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState(options[0]);
 
-  const { arts, artists } = useAppSelector(state => {
+  // redux
+  const dispatch = useAppDispatch();
+  const { arts, artists, isArtistLoading } = useAppSelector(state => {
     const {
-      ArtsReducer: { arts },
-      ArtistReducer: { artists },
+      ArtsReducer: { arts, isArtLoading },
+      ArtistReducer: { artists, isArtistLoading },
     } = state;
     return {
       arts,
       artists,
+      isArtistLoading,
+      isArtLoading,
     };
   });
 
@@ -67,7 +78,6 @@ const ArtGallery: React.FunctionComponent = () => {
 
   const filterHandler = (filterBy: string | null) => {
     setStatus(filterBy);
-    console.log(filterBy, 'filterBy');
     fetchArts(sortBy.value, filterBy);
   };
 
@@ -79,16 +89,19 @@ const ArtGallery: React.FunctionComponent = () => {
         <BannerText>
           <BannerHeading>Art Title</BannerHeading>
           <HelperText>Last Sold / 222 Sold</HelperText>
-          <Price>$2222</Price>
+          <Price>$2222.70</Price>
           <ImageWrapper>
-            <Image src="https://i.picsum.photos/id/588/536/354.jpg?hmac=FS4txF2tmMT0SRStw2KU_qJ7QII1GLJZBgSw_xSfrZg" />
+            <Image src="https://via.placeholder.com/150/000000/FFFFFF/" />
           </ImageWrapper>
         </BannerText>
       </BannerWrapper>
 
       <ArtGalleryWrapper>
         <SideBarWrapper>
-          <ArtistSideBar artistsData={artists} />
+          <ArtistSideBar
+            isArtistLoading={isArtistLoading}
+            artistsData={artists}
+          />
         </SideBarWrapper>
 
         <GalleryWrapper>
@@ -117,6 +130,7 @@ const ArtGallery: React.FunctionComponent = () => {
               }}
             />
           </Filters>
+
           <Gallery artGalleryData={arts} />
         </GalleryWrapper>
       </ArtGalleryWrapper>

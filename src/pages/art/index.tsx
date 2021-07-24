@@ -1,4 +1,6 @@
+import Spin from 'components/spinner';
 import get from 'lodash/get';
+import { Loader } from 'pages/artGallery/styles';
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getSingleArt } from 'store/actions/artsActions';
@@ -10,6 +12,7 @@ import {
   ArtWrapper,
   CreatedBy,
   Description,
+  NotArtFound,
   Price,
 } from './styles';
 
@@ -21,12 +24,13 @@ const Art: React.FunctionComponent<Props> = () => {
   const dispatch = useAppDispatch();
   const artId = useParams();
 
-  const { artDetails } = useAppSelector(state => {
+  const { artDetails = {}, isArtLoading } = useAppSelector(state => {
     const {
-      ArtsReducer: { artDetails },
+      ArtsReducer: { artDetails, isArtLoading },
     } = state;
     return {
       artDetails,
+      isArtLoading,
     };
   });
 
@@ -34,6 +38,17 @@ const Art: React.FunctionComponent<Props> = () => {
     dispatch(getSingleArt(get(artId, `id`)));
   }, [artId, dispatch]);
 
+  if (isArtLoading) {
+    return (
+      <Loader>
+        <Spin className="spinner-wrapper" /> Loading...
+      </Loader>
+    );
+  }
+
+  if (!Object.keys(artDetails).length) {
+    return <NotArtFound>Art Not Found!!</NotArtFound>;
+  }
   return (
     <ArtWrapper>
       <ArtImageWrapper>

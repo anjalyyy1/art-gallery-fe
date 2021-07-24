@@ -1,5 +1,8 @@
+// libraries
 import { get, map } from 'lodash';
 import React from 'react';
+
+// styles
 import {
   GalleryWrapper,
   ArtWrapper,
@@ -22,6 +25,7 @@ type Props = {
 
 const Gallery: React.FunctionComponent<Props> = props => {
   const { artGalleryData } = props;
+
   return (
     <GalleryWrapper>
       {map(artGalleryData, eachItem => {
@@ -36,7 +40,7 @@ const Gallery: React.FunctionComponent<Props> = props => {
 
               <Creator>
                 <CreatorImageWrapper>
-                  <CreatorImage src="https://i.picsum.photos/id/237/536/354.jpg?hmac=i0yVXW1ORpyCZpQ-CknuyV-jbtU7_x9EBQVhvT5aRr0" />
+                  <CreatorImage src={get(eachItem, `artist.imageUrl`)} />
                 </CreatorImageWrapper>
                 <Details>
                   <CreatorName>{get(eachItem, `artist.name`)}</CreatorName>

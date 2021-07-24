@@ -21,3 +21,8 @@ export const setArtDetails = (artDetails: any): ActionType => ({
   type: ArtTypes.SET_ART_DETAILS,
   artDetails,
 });
+
+export const setLoading = (isArtLoading: boolean): ActionType => ({
+  type: ArtTypes.IS_ART_LOADING,
+  isArtLoading,
+});

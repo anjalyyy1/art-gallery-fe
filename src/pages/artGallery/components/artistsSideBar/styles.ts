@@ -31,7 +31,7 @@ export const CreatorImageWrapper = styled.div`
 export const CreatorImage = styled.img`
   border-radius: 50%;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 `;
 

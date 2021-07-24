@@ -27,6 +27,8 @@ export const GalleryImage = styled.img`
 export const CreatorImageWrapper = styled.div`
   width: 50px;
   height: 50px;
+  min-width: 50px;
+  min-height: 50px;
 `;
 
 export const CreatorImage = styled.img`
@@ -42,7 +44,9 @@ export const CreatorName = styled.span`
   font-size: 14px;
 `;
 
-export const ArtName = styled.span``;
+export const ArtName = styled.span`
+  font-weight: bold;
+`;
 
 export const Creator = styled.div`
   display: flex;
@@ -56,14 +60,19 @@ export const Price = styled.span`
   display: inline-block;
 `;
 
-export const Details = styled.div``;
+export const Details = styled.div`
+  margin-left: 10px;
+  align-self: center;
+`;
 
 export const Status = styled.span`
   position: absolute;
-  right: -10px;
+  right: -5px;
   background: white;
   border-radius: 16px;
-  padding: 3px 8px;
-  top: -10px;
-  background: #ed7b7b;
+  padding: 5px 10px;
+  top: -5px;
+  color: white;
+  font-weight: bold;
+  background: ${props => props.theme.COLOR_PALETTE.RED};
 `;

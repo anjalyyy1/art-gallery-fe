@@ -6,7 +6,7 @@ export const PageWrapper = styled.div``;
 export const Banner = styled.div`
   background-image: url(${CoverImage});
   width: 100%;
-  height: 20rem;
+  height: 28rem;
   background-size: cover;
 `;
 
@@ -23,9 +23,10 @@ export const BannerWrapper = styled.div`
 `;
 
 export const BannerHeading = styled.h2`
-  font-size: 50px;
   font-weight: bold;
   margin-bottom: 40px;
+  font-size: 65px;
+  letter-spacing: 5px;
   color: ${props => props.theme.COLOR_PALETTE.WHITE};
 `;
 
@@ -37,19 +38,21 @@ export const HelperText = styled.span`
 export const Price = styled.span`
   font-size: 20px;
   font-weight: bold;
+  margin-top: 10px;
+  display: block;
 `;
 
 export const ImageWrapper = styled.div`
   width: 50px;
   height: 50px;
-  border-radius: 50%;
   margin: 20px auto 0;
 `;
 
 export const Image = styled.img`
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  border-radius: 50%;
 `;
 
 export const ArtGalleryWrapper = styled.div`
@@ -81,5 +84,20 @@ export const Filters = styled.div`
 
   .select__value-container {
     font-size: 13px;
+  }
+`;
+
+export const Loader = styled.div`
+  display: flex;
+  align-items: center;
+  height: 50%;
+  justify-content: center;
+  width: 100%;
+  min-height: 300px;
+
+  .spinner-wrapper {
+    position: relative;
+    font-size: 16px;
+    margin-right: 25px;
   }
 `;
