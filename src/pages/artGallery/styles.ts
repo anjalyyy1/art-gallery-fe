@@ -51,3 +51,35 @@ export const Image = styled.img`
   height: auto;
   object-fit: cover;
 `;
+
+export const ArtGalleryWrapper = styled.div`
+  display: flex;
+  max-width: 1140px;
+  margin: 50px auto;
+`;
+
+export const SideBarWrapper = styled.div`
+  width: 25%;
+`;
+
+export const GalleryWrapper = styled.div`
+  flex: 1;
+`;
+
+export const Filters = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .select__control {
+    border-radius: 20px;
+    width: 100%;
+  }
+  .sort-container {
+    width: 150px;
+  }
+
+  .select__value-container {
+    font-size: 13px;
+  }
+`;

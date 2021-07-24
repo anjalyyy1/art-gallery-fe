@@ -1,4 +1,4 @@
-import { StyledInput, Label } from './styles';
+import { StyledInput, Label, InputWrapper } from './styles';
 import React, { FunctionComponent } from 'react';
 
 type Props = {
@@ -47,7 +47,7 @@ const Input: FunctionComponent<Props> = ({
   icon,
 }) => {
   return (
-    <>
+    <InputWrapper className="input-wrapper">
       {!!inputLabel && <Label>{inputLabel}</Label>}
       {!!icon && icon}
       <StyledInput
@@ -59,7 +59,7 @@ const Input: FunctionComponent<Props> = ({
         ref={refVal}
         defaultValue={defaultValue}
       />
-    </>
+    </InputWrapper>
   );
 };
 

@@ -1,19 +1,36 @@
+import { FilterItem, FilterWrapper } from './styles';
+
 const filterOptions = [
   {
-    label: 'sold',
+    label: 'On Sale',
+    key: 'sale',
   },
   {
     label: 'All',
+    key: null,
   },
 ];
 
-const Filter = () => {
+type Props = {
+  filterHandler: (filterBy: string | null) => void;
+  activeTab: string | null;
+};
+
+const Filter: React.FunctionComponent<Props> = props => {
+  const { filterHandler, activeTab } = props;
+
   return (
-    <>
-      {filterOptions.map(eachOption => (
-        <button>{eachOption.label}</button>
+    <FilterWrapper>
+      {filterOptions.map((eachOption, index) => (
+        <FilterItem
+          key={index}
+          isActive={activeTab === eachOption.key}
+          onClick={() => filterHandler(eachOption.key)}
+        >
+          {eachOption.label}
+        </FilterItem>
       ))}
-    </>
+    </FilterWrapper>
   );
 };
 

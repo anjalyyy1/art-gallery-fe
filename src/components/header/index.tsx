@@ -35,9 +35,9 @@ const Header = () => {
         </AppLogo>
         <NavWrapper>
           <NavOptions>
-            {navOptions.map(eachLink => {
+            {navOptions.map((eachLink, index) => {
               return (
-                <NavItem>
+                <NavItem key={index}>
                   <Link to={eachLink.link}>{eachLink.label}</Link>
                 </NavItem>
               );

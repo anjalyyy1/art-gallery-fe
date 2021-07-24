@@ -1,4 +1,5 @@
 import axios from 'axios';
+import get from 'lodash/get';
 
 // formatting response
 const handleResponse = ({ response, error }: any) => {
@@ -11,7 +12,7 @@ const handleResponse = ({ response, error }: any) => {
   }
 
   formattedResponse = {
-    data: response.data,
+    data: get(response, `data.data`, []),
     success: true,
   };
 

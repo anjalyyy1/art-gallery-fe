@@ -13,8 +13,8 @@ const Routes = () => {
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          {routes.map(route => {
-            return <Route key={route.title} exact={true} {...route} />;
+          {routes.map((route, index) => {
+            return <Route key={index} exact={true} {...route} />;
           })}
           <Redirect to="/arts" />
         </Switch>

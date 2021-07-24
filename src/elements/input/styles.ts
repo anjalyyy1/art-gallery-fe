@@ -18,4 +18,6 @@ const Label = styled.label``;
 
 const RequiredMark = styled.span``;
 
-export { StyledInput, Label, RequiredMark };
+const InputWrapper = styled.div``;
+
+export { StyledInput, Label, RequiredMark, InputWrapper };

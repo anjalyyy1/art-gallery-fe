@@ -4,15 +4,19 @@ import { ThemeProvider } from 'styled-components';
 import theme from 'styles/themes';
 import { FunctionComponent } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { store } from 'redux/createStore';
+import { Provider } from 'react-redux';
 
 const AllProvider: FunctionComponent = () => {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <App />
-      </ThemeProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
   );
 };
 

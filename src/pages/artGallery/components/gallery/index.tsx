@@ -11,6 +11,9 @@ import {
   CreatorName,
   Creator,
   Price,
+  Details,
+  Status,
+  ArtLink,
 } from './styles';
 
 type Props = {
@@ -23,20 +26,26 @@ const Gallery: React.FunctionComponent<Props> = props => {
     <GalleryWrapper>
       {map(artGalleryData, eachItem => {
         return (
-          <ArtWrapper>
-            <GalleryImageWrapper>
-              <GalleryImage src={get(eachItem, `imageUrl`)} />
-            </GalleryImageWrapper>
+          <ArtWrapper key={eachItem._id}>
+            <ArtLink to={`arts/${eachItem._id}`}>
+              {eachItem.status === 'sold' && <Status>Sold</Status>}
 
-            <Creator>
-              <CreatorImageWrapper>
-                <CreatorImage src="https://i.picsum.photos/id/237/536/354.jpg?hmac=i0yVXW1ORpyCZpQ-CknuyV-jbtU7_x9EBQVhvT5aRr0" />
-              </CreatorImageWrapper>
-              <CreatorName>{get(eachItem, `artistName`)}</CreatorName>
-              <ArtName>{get(eachItem, `artName`)}</ArtName>
-            </Creator>
+              <GalleryImageWrapper>
+                <GalleryImage src={get(eachItem, `imageUrl`)} />
+              </GalleryImageWrapper>
 
-            <Price>{get(eachItem, `price`)}</Price>
+              <Creator>
+                <CreatorImageWrapper>
+                  <CreatorImage src="https://i.picsum.photos/id/237/536/354.jpg?hmac=i0yVXW1ORpyCZpQ-CknuyV-jbtU7_x9EBQVhvT5aRr0" />
+                </CreatorImageWrapper>
+                <Details>
+                  <CreatorName>{get(eachItem, `artist.name`)}</CreatorName>
+                  <ArtName>{get(eachItem, `name`)}</ArtName>
+                </Details>
+              </Creator>
+
+              <Price>${get(eachItem, `price`)}</Price>
+            </ArtLink>
           </ArtWrapper>
         );
       })}

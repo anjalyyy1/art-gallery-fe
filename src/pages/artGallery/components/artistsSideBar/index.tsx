@@ -1,77 +1,48 @@
-import { get, map } from 'lodash';
-import React from 'react';
+import Input from 'elements/input';
+import { filter, get, map, toLower } from 'lodash';
+import React, { useState } from 'react';
 import {
   ArtistSideBarWrapper,
   Creator,
   CreatorImageWrapper,
   CreatorImage,
   CreatorName,
+  Heading,
+  NoDataText,
 } from './styles';
-const dummyData = [
-  {
-    id: 1,
-    artistImage:
-      'https://i.picsum.photos/id/609/536/354.jpg?hmac=tVnz1exGJpbwT-2P8MWOvapIg7nTpSQ5SCeUHyu_7mU',
-    name: 'John',
-  },
-  {
-    id: 1,
-    artistImage:
-      'https://i.picsum.photos/id/609/536/354.jpg?hmac=tVnz1exGJpbwT-2P8MWOvapIg7nTpSQ5SCeUHyu_7mU',
-    name: 'John',
-  },
-  {
-    id: 1,
-    artistImage:
-      'https://i.picsum.photos/id/609/536/354.jpg?hmac=tVnz1exGJpbwT-2P8MWOvapIg7nTpSQ5SCeUHyu_7mU',
-    name: 'John',
-  },
-  {
-    id: 1,
-    artistImage:
-      'https://i.picsum.photos/id/609/536/354.jpg?hmac=tVnz1exGJpbwT-2P8MWOvapIg7nTpSQ5SCeUHyu_7mU',
-    name: 'John',
-  },
-  {
-    id: 1,
-    artistImage:
-      'https://i.picsum.photos/id/609/536/354.jpg?hmac=tVnz1exGJpbwT-2P8MWOvapIg7nTpSQ5SCeUHyu_7mU',
-    name: 'John',
-  },
-  {
-    id: 1,
-    artistImage:
-      'https://i.picsum.photos/id/609/536/354.jpg?hmac=tVnz1exGJpbwT-2P8MWOvapIg7nTpSQ5SCeUHyu_7mU',
-    name: 'John',
-  },
-  {
-    id: 1,
-    artistImage:
-      'https://i.picsum.photos/id/609/536/354.jpg?hmac=tVnz1exGJpbwT-2P8MWOvapIg7nTpSQ5SCeUHyu_7mU',
-    name: 'John',
-  },
-  {
-    id: 1,
-    artistImage:
-      'https://i.picsum.photos/id/609/536/354.jpg?hmac=tVnz1exGJpbwT-2P8MWOvapIg7nTpSQ5SCeUHyu_7mU',
-    name: 'John',
-  },
-  {
-    id: 1,
-    artistImage:
-      'https://i.picsum.photos/id/609/536/354.jpg?hmac=tVnz1exGJpbwT-2P8MWOvapIg7nTpSQ5SCeUHyu_7mU',
-    name: 'John',
-  },
-];
 
-const ArtistSideBar: React.FunctionComponent = () => {
+import { RiSearchLine } from 'react-icons/ri';
+
+type Props = {
+  artistsData: any[];
+};
+
+const ArtistSideBar: React.FunctionComponent<Props> = ({ artistsData }) => {
+  const [value, setValue] = useState('');
+
+  const filteredData = filter(artistsData, eachArtist => {
+    const text = toLower(eachArtist.name);
+    return text.includes(toLower(value));
+  });
+
   return (
     <ArtistSideBarWrapper>
-      {map(dummyData, eachItem => {
+      <Heading>Artists</Heading>
+      <Input
+        placeholder={`Search from ${(artistsData || []).length} creators`}
+        icon={<RiSearchLine />}
+        handleChange={e => {
+          setValue(e.target.value);
+        }}
+      />
+      {!!value && !filteredData.length && (
+        <NoDataText>No Artist matches your search</NoDataText>
+      )}
+      {map(filteredData, eachItem => {
         return (
-          <Creator>
+          <Creator key={eachItem._id}>
             <CreatorImageWrapper>
-              <CreatorImage src="https://i.picsum.photos/id/237/536/354.jpg?hmac=i0yVXW1ORpyCZpQ-CknuyV-jbtU7_x9EBQVhvT5aRr0" />
+              <CreatorImage src={eachItem.imageUrl} />
             </CreatorImageWrapper>
             <CreatorName>{get(eachItem, `name`)}</CreatorName>
           </Creator>
