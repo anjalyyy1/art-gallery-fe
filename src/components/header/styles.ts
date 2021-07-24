@@ -18,7 +18,7 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const Container = styled.div`
-  background-color: ${props => props.theme.COLOR.PRIMARY_COLOR};
+  background-color: ${props => props.theme.COLOR_PALETTE.BLACK};
 `;
 
 export const NavWrapper = styled.nav`
